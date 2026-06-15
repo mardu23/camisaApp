@@ -451,3 +451,7 @@ app.post('/api/camisetas/:id/votar', verificarToken, async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+// ==========================
+// Lo que dijo el profe
+// ==========================
