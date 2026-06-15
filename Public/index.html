@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Camisa Gen 2027</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="pantallaAuth" class="auth-screen">
+    <div class="auth-container">
+
+      <div class="auth-brand">
+        <span class="badge">CAMISA· GEN 2027</span>
+        <h1>Propuestas para la camisa de la Gen 2027</h1>
+        <p>Inicia sesión para crear tus propuestas de camisa para el próximo año. ¡Tu opinión nos importa!</p>
+      </div>
+
+      <div class="auth-card-app">
+
+        <div class="auth-tabs">
+          <button id="tabLogin" class="tab-btn activo">Iniciar sesión</button>
+          <button id="tabRegistro" class="tab-btn">Crear cuenta</button>
+        </div>
+
+        <div id="formLogin" class="auth-form">
+          <h2>Bienvenido de nuevo</h2>
+          <p>Accede a tu cuenta para continuar diseñando.</p>
+
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="Ej: name@gmail.com">
+
+          <label for="loginClave">Contraseña</label>
+          <input type="password" id="loginClave" placeholder="Password">
+
+          <button id="btnLogin">Iniciar sesión</button>
+        </div>
+
+        <div id="formRegistro" class="auth-form oculto">
+          <h2>Crea tu cuenta</h2>
+          <p>Regístrate para participar en la votación de diseños.</p>
+
+          <label for="registroNombre">Nombre</label>
+          <input type="text" id="registroNombre" placeholder="Ej: Mariana, Daniela, Alonso...">
+
+          <label for="registroEmail">Email</label>
+          <input type="email" id="registroEmail" placeholder="Ej: name@gmail.com">
+
+          <label for="registroClave">Contraseña</label>
+          <input type="password" id="registroClave" placeholder="Mínimo 4 caracteres">
+
+          <button id="btnRegistro">Crear cuenta</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="pantallaApp" class="app-screen oculto">
+
+    <header class="hero">
+      <div>
+        <span class="badge">CAMISA · GEN 2027</span>
+        <h1>Propuestas para la camisa de la Gen 2027</h1>
+        <p>Crea, guarda, edita y vota por la línea gráfica de la próxima camisa.</p>
+      </div>
+    </header>
+
+    <main class="contenedor">
+
+      <section class="profile-card card">
+        <div class="profile-info">
+          <div class="avatar" id="avatarUsuario">K</div>
+
+          <div>
+            <h2>Mi perfil</h2>
+            <p id="perfilNombre">Usuario</p>
+            <span id="perfilEmail">name@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button id="btnCambiarCuenta" class="btn-secondary">Cambiar cuenta</button>
+          <button id="btnLogout" class="btn-delete">Cerrar sesión</button>
+        </div>
+      </section>
+
+      <section class="panel card">
+        <div class="section-title">
+          <h2>Diseña tu camiseta</h2>
+          <p>Selecciona una parte de la camisa y cambia su color.</p>
+        </div>
+
+        <div class="formulario">
+          <input type="hidden" id="camisetaId">
+
+          <label for="nombreDiseno">Nombre del diseño</label>
+          <input type="text" id="nombreDiseno" placeholder="Ej: Minimalista, Retro, Futurista...">
+
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" placeholder="Ej:   Colores blah blah"></textarea>
+
+          <label for="colorPicker">Color seleccionado</label>
+          <input type="color" id="colorPicker" value="#ffffff">
+
+          <p id="parteActual">Selecciona una parte de la camisa</p>
+
+          <button id="btnGuardar">Guardar diseño</button>
+          <button id="btnActualizar" class="btn-edit oculto">Actualizar diseño</button>
+          <button id="btnCancelar" class="btn-cancel oculto">Cancelar edición</button>
+          <button id="btnLimpiar" class="btn-secondary">Reiniciar colores</button>
+        </div>
+      </section>
+
+      <section class="camiseta-preview card">
+        <svg id="camisetaSvg" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Manga Izquierda (corta y ancha estilo deportivo) -->
+  <path 
+    id="mangaIzquierda"
+    class="parte-camiseta"
+    d="M 100 95 L 45 110 L 50 170 L 95 155 Z"
+    fill="#ffffff"
+    stroke="#4a4a6a"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Manga Derecha (corta y ancha estilo deportivo) -->
+  <path 
+    id="mangaDerecha"
+    class="parte-camiseta"
+    d="M 300 95 L 355 110 L 350 170 L 305 155 Z"
+    fill="#ffffff"
+    stroke="#4a4a6a"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Torso (silueta más recta y moderna) -->
+  <path 
+    id="torso"
+    class="parte-camiseta"
+    d="M 100 95 
+       Q 200 130 300 95 
+       L 310 340 
+       Q 200 355 90 340 
+       Z"
+    fill="#ffffff"
+    stroke="#4a4a6a"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Cuello tipo V (diferente al redondo) -->
+  <path 
+    id="cuello"
+    class="parte-camiseta"
+    d="M 150 95 L 200 130 L 250 95 L 220 88 L 200 85 L 180 88 Z"
+    fill="#ffffff"
+    stroke="#4a4a6a"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Detalle: línea central decorativa -->
+  <line x1="200" y1="130" x2="200" y2="340" stroke="#4a4a6a" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+
+  <!-- Texto principal -->
+  <text 
+    x="200" 
+    y="250" 
+    text-anchor="middle" 
+    font-size="24" 
+    fill="#4a4a6a" 
+    font-weight="bold"
+    font-family="Arial, sans-serif"
+    letter-spacing="2">
+    GEN 2027
+  </text>
+</svg>
+      </section>
+
+      <section class="lista-disenos card">
+        <div class="section-title">
+          <h2>Diseños guardados</h2>
+          <p>Administra los diseños registrados en MongoDB.</p>
+        </div>
+
+        <div id="contenedorCamisetas"></div>
+      </section>
+
+    </main>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
