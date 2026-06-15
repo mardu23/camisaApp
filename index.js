@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'Public')));
 // CONEXIÓN A MONGODB LOCAL
 // ==========================
 
-mongoose.connect('mongodb+srv://2019473_db_user:nana2301@cluster0.tartnjo.mongodb.net/camisaApp?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://2019473_db_user:mardu23@cluster0.tartnjo.mongodb.net/camisaApp?retryWrites=true&w=majority')
   .then(() => {
     console.log('✅ Conectado a MongoDB Atlas correctamente');
   })
