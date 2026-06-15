@@ -23,14 +23,13 @@ app.use(express.static(path.join(__dirname, 'Public')));
 // CONEXIÓN A MONGODB LOCAL
 // ==========================
 
-mongoose.connect('mongodb://localhost:27017/camisaApp')
+mongoose.connect('mongodb+srv://2019473_db_user:nana2301@cluster0.tartnjo.mongodb.net/camisaApp?retryWrites=true&w=majority')
   .then(() => {
-    console.log('MongoDB local conectado correctamente');
+    console.log('✅ Conectado a MongoDB Atlas correctamente');
   })
   .catch((error) => {
-    console.error('Error al conectar con MongoDB:', error);
+    console.error('❌ Error al conectar con MongoDB Atlas:', error);
   });
-
 // ==========================
 // MIDDLEWARE JWT
 // ==========================
